@@ -5,11 +5,8 @@
 //  Created by Viorel Harabaru  on 08.02.2023.
 //
 
-import Foundation
-
-
 // MARK: Modeling a dot
-struct Dot {
+public struct Dot {
     // MARK: DOT PROPERTIES
     // Properties used for Initialization
     var dotName: String
@@ -21,7 +18,7 @@ struct Dot {
     var dotPosition:(Float, Float) = (650.00, 300.00)
     
     // MARK: DOT INITIALIZER
-    init(dotName: String, dotID: Int, connectTo: [Int]) {
+    public init(dotName: String, dotID: Int, connectTo: [Int]) {
         self.dotName = dotName
         self.dotID = dotID
         self.connectTo = connectTo
@@ -30,18 +27,18 @@ struct Dot {
     // MARK: DOT METHODS
      // Making a mutating method
     // this method will modify dotPosition property (will move the dot)
-    mutating func moveDot(direction: String){
+    public mutating func moveDot(direction: String){
         switch direction {
         case "Right": dotPosition.0 += 150 // moves dot +150 to right
         case "Left": dotPosition.0 -= 150
         case "Up": dotPosition.1 -= 50
         case "Down": dotPosition.1 += 50
-        default: dotPosition
+        default: break
         }
     }
     
     // FUNCTION TO PRINT DOT IN XML FORMAT
-    func printDot() -> String {
+    public func printDot() -> String {
         // Formating data for XML format:
         let position: String = "\(dotPosition.0), \(dotPosition.1)"
         let connections = connectTo.map(String.init).joined(separator: ",")
@@ -59,24 +56,14 @@ struct Dot {
     }
 }
 
-
-// Creating some dots
-
-// INCLUDE DOTS:
-
-//var scheme = ""
-//scheme.append(dot0.printDot())
-//scheme.append(dot1.printDot())
-//scheme.append(dot2.printDot())
-//scheme.append(dot3.printDot())
-
+var scheme = ""
 // MARK: PLOTING AREA
 var plot = """
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.2" ID="D95CC5C0-B4ED-42B0-ADC0-EBD32EAF3DAE">
 
     <Notes>
-        ENTER SCHEME HERE
+        \(scheme)
     </Notes>
 
     <BackgroundShapes></BackgroundShapes>
@@ -124,7 +111,7 @@ var plot = """
 </ScappleDocument>
 """
 
-print(plot)
+
 
 
 
