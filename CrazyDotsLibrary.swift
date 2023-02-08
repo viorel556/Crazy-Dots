@@ -1,7 +1,15 @@
+//
+//  CrazyDotsLibrary.swift
+//  
+//
+//  Created by Viorel Harabaru  on 08.02.2023.
+//
+
+import Foundation
+
 
 // MARK: Modeling a dot
 struct Dot {
-    
     // MARK: DOT PROPERTIES
     // Properties used for Initialization
     var dotName: String
@@ -12,7 +20,7 @@ struct Dot {
     // every dot has a default start position (CENTER)
     var dotPosition:(Float, Float) = (650.00, 300.00)
     
-    // INITIALIZER
+    // MARK: DOT INITIALIZER
     init(dotName: String, dotID: Int, connectTo: [Int]) {
         self.dotName = dotName
         self.dotID = dotID
@@ -20,8 +28,8 @@ struct Dot {
     }
     
     // MARK: DOT METHODS
-     // MAKING A MUTATING FUNCTION
-    // this function will modify dotPosition property (will move the dot)
+     // Making a mutating method
+    // this method will modify dotPosition property (will move the dot)
     mutating func moveDot(direction: String){
         switch direction {
         case "Right": dotPosition.0 += 150 // moves dot +150 to right
@@ -51,7 +59,11 @@ struct Dot {
     }
 }
 
+
 // Creating some dots
+
+// INCLUDE DOTS:
+
 //var scheme = ""
 //scheme.append(dot0.printDot())
 //scheme.append(dot1.printDot())
