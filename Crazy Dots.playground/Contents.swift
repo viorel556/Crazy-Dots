@@ -26,6 +26,7 @@ struct Dot {
         default: dotPosition
         }
     }
+    // test 
     // Function to print stuff according to XML
     func printDot() -> String {
         // converting position from tupple to String:
