@@ -11,9 +11,9 @@ var dot1 = Dot(dotName:"Viorel", dotID: 0, connectTo: [0])
 
 
 // ADD YOUR DOTS INTO THE SCHEME:
-var scheme = ""
+scheme = ""
 
-
+print(plot)
 //
 
 

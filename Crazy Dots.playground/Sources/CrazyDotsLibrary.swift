@@ -29,10 +29,14 @@ public struct Dot {
     // this method will modify dotPosition property (will move the dot)
     public mutating func moveDot(direction: String){
         switch direction {
-        case "Right": dotPosition.0 += 150 // moves dot +150 to right
+        case "Right": dotPosition.0 += 150
+            break // moves dot +150 to right
         case "Left": dotPosition.0 -= 150
+            break
         case "Up": dotPosition.1 -= 50
+            break
         case "Down": dotPosition.1 += 50
+            break
         default: break
         }
     }
@@ -56,9 +60,9 @@ public struct Dot {
     }
 }
 
-var scheme = ""
+public var scheme = "" 
 // MARK: PLOTING AREA
-var plot = """
+public var plot = """
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.2" ID="D95CC5C0-B4ED-42B0-ADC0-EBD32EAF3DAE">
 
