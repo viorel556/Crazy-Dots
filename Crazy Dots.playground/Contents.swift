@@ -26,7 +26,6 @@ struct Dot {
         default: dotPosition
         }
     }
-    // test 
     // Function to print stuff according to XML
     func printDot() -> String {
         // converting position from tupple to String:
@@ -34,10 +33,9 @@ struct Dot {
         var connections = connectTo.map(String.init).joined(separator: ",")
         
         return """
-        <Note ID="\(dotID)" FontSize="15.0" Position="\(position)" Width="85.0" Shadow="Yes">
+        <Note ID="\(dotID)" FontSize="12.0" Position="\(position)" Width="85.0">
             <Appearance>
                 <Alignment>Center</Alignment>
-                <Border Weight="1" Style="Rounded"></Border>
             </Appearance>
             <String>\(dotName)</String>
             <ConnectedNoteIDs>\(connections)</ConnectedNoteIDs>
@@ -62,7 +60,7 @@ dot3.moveDot(direction: "Right")
 dot3.moveDot(direction: "Down")
 
 
-// test
+
 
 
 var scheme = ""
