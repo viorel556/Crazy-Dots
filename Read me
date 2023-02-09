@@ -1,0 +1,10 @@
+A swift library to create dots via code and position them accordingly; 
+The code also generates a scap file that is stored on the desktop; 
+
+- All initiated dots are places in the Center of the Board by default; 
+- All dots are initiated in the Scheme {} constructor; 
+- The dots have a moveDot() method to position them accordingly. 
+ // these will have to be called multiple times for some complex ploting. 
+ 
+
+
