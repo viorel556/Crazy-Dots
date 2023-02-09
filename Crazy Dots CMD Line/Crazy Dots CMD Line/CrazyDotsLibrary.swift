@@ -1,5 +1,4 @@
 //  Created by Viorel Harabaru  on 08.02.2023.
-
 import Foundation
 
 // MARK: Modeling a dot
@@ -27,7 +26,7 @@ public struct Dot {
     public mutating func moveDot(direction: String){
         switch direction {
         case "Right": dotPosition.0 += 150
-            break // moves dot +150 to right
+            break /// moves dot +150 to right
         case "Left": dotPosition.0 -= 150
             break
         case "Up": dotPosition.1 -= 50
@@ -38,7 +37,7 @@ public struct Dot {
         }
     }
     
-    // FUNCTION TO PRINT (actually return) DOT IN XML FORMAT (as string)
+    // METHOD TO PRINT (actually return) DOT IN XML FORMAT (as string)
     public func printDot() -> String {
         // Formating data for XML format:
         let position: String = "\(dotPosition.0), \(dotPosition.1)"
@@ -57,7 +56,7 @@ public struct Dot {
     }
 }
 
-  // MARK: { MAIN }
+  // MARK: { main }
  // in this section dots are initialized and their position is defined
 // all of it is done in the main.swift for consistency
 
@@ -75,7 +74,9 @@ public func generateScheme() {
 }
 
 
-// MARK: PLOTING AREA
+  // MARK: PLOTING AREA
+ // here is the default xml code for scapple;
+// in the code we introduce out dots as previously defined;
 public var plot = """
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.2" ID="D95CC5C0-B4ED-42B0-ADC0-EBD32EAF3DAE">
