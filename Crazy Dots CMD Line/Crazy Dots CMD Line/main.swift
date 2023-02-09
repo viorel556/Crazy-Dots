@@ -6,10 +6,13 @@ public struct Scheme {
     // MARK: YOUR CODE GOES HERE:
     
     // CREATE YOUR DOTS:
-    var king = Dot(dotName:"KING dot", dotID: 0, connectTo: [0])
-    /// making a king connected to queen.dotID - 0
-    var queen = Dot(dotName: "QUEN dot", dotID: 1, connectTo: [1])
-    /// making a queen connected to king.dotID - 1
+    var king = Dot(dotName:"KING dot",
+                   dotID: 0,
+                   connectTo: [0]) /// making a king connected to queen.dotID : 0
+    ///
+    var queen = Dot(dotName: "QUEEN dot",
+                    dotID: 1,
+                    connectTo: [1]) /// making a queen connected to king.dotID: 1
     
     
     // MARK: move created dots HERE:
