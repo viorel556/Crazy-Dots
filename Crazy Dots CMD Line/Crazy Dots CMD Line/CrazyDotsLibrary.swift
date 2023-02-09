@@ -1,9 +1,6 @@
-//
-//  CrazyDotsLibrary.swift
-//
-//
 //  Created by Viorel Harabaru  on 08.02.2023.
-//
+
+import Foundation
 
 // MARK: Modeling a dot
 public struct Dot {
@@ -41,7 +38,7 @@ public struct Dot {
         }
     }
     
-    // FUNCTION TO PRINT DOT IN XML FORMAT
+    // FUNCTION TO PRINT (actually return) DOT IN XML FORMAT (as string)
     public func printDot() -> String {
         // Formating data for XML format:
         let position: String = "\(dotPosition.0), \(dotPosition.1)"
@@ -60,14 +57,31 @@ public struct Dot {
     }
 }
 
-public var scheme = ""
+  // MARK: { MAIN }
+ // in this section dots are initialized and their position is defined
+// all of it is done in the main.swift for consistency
+
+
+// MARK: reads dynamically the variables of Scheme() and appends them to dotScheme
+var dotScheme = "" /// an empty string that will store final xml
+public func generateScheme() {
+    let schemeInstance = Scheme()
+    let mirror = Mirror(reflecting: schemeInstance)
+    for child in mirror.children {
+        if let dot = child.value as? Dot {
+            dotScheme.append(dot.printDot())
+        }
+    }
+}
+
+
 // MARK: PLOTING AREA
 public var plot = """
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.2" ID="D95CC5C0-B4ED-42B0-ADC0-EBD32EAF3DAE">
 
     <Notes>
-        \(scheme)
+        \(dotScheme)
     </Notes>
 
     <BackgroundShapes></BackgroundShapes>
@@ -114,6 +128,19 @@ public var plot = """
     <PrintSettings PaperSize="595.0,842.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
 </ScappleDocument>
 """
+
+// MARK: This will save the resulting file on the Desktop:
+public func saveToDesk() {
+    let fileManager = FileManager.default
+    if let dir = fileManager.urls(for: .desktopDirectory, in: .userDomainMask).first {
+        let fileURL = dir.appendingPathComponent("test.scap")
+        do {
+            try plot.write(to: fileURL, atomically: false, encoding: .utf8)
+        } catch {
+            print("Was not able to export!")
+        }
+    }
+}
 
 
 
