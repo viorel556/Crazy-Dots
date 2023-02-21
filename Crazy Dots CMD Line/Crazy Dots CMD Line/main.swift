@@ -19,7 +19,7 @@ public struct Scheme {
     /// by default all dots are initiated in center on top of each other
     init() {
         king.moveDot(direction: "Right") /// move king to the left x1
-        queen.moveDot(direction: "Right") /// move queen to the right x1
+        queen.moveDot(direction: "Left") /// move queen to the right x1
     }
 }
 

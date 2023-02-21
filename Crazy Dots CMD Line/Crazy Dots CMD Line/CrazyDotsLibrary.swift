@@ -58,7 +58,7 @@ public struct Dot {
 
   // MARK: { main }
  // in this section dots are initialized and their position is defined
-// all of it is done in the main.swift for consistency
+// all of it is done in the main.swift separate file for consistency
 
 
 // MARK: reads dynamically the variables of Scheme() and appends them to dotScheme
