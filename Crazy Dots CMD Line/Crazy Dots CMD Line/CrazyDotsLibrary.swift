@@ -9,9 +9,9 @@ public struct Dot {
     var dotID: Int
     var connectTo: [Int] // using an array here sinc a dot can be connected to multiple dots
     
-    // properties not used in intializer
+     // properties NOT USED in intializer
     // every dot has a default start position (CENTER)
-    var dotPosition:(Float, Float) = (650.00, 300.00)
+    var dotPosition:(Float, Float) = (650.00, 300.00) // computed property
     
     // MARK: DOT INITIALIZER
     public init(dotName: String, dotID: Int, connectTo: [Int]) {
@@ -20,10 +20,10 @@ public struct Dot {
         self.connectTo = connectTo
     }
     
-    // MARK: DOT METHODS
+      // MARK: DOT METHODS
      // Making a mutating method
     // this method will modify dotPosition property (will move the dot)
-    public mutating func moveDot(direction: String){
+    public mutating func moveDot(direction: String) {
         switch direction {
         case "Right": dotPosition.0 += 150
             break /// moves dot +150 to right
@@ -63,6 +63,7 @@ public struct Dot {
 
 // MARK: reads dynamically the variables of Scheme() and appends them to dotScheme
 var dotScheme = "" /// an empty string that will store final xml
+
 public func generateScheme() {
     let schemeInstance = Scheme()
     let mirror = Mirror(reflecting: schemeInstance)
@@ -137,8 +138,9 @@ public func saveToDesk() {
         let fileURL = dir.appendingPathComponent("test.scap")
         do {
             try plot.write(to: fileURL, atomically: false, encoding: .utf8)
-        } catch {
-            print("Was not able to export!")
+        } 
+        catch {
+            print("Was not able to export the Scapple file!")
         }
     }
 }
